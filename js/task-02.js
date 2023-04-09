@@ -18,5 +18,6 @@ const createListItem = (ingredients) => {
   });
 };
 
-const listItem = createListItem(ingredients);
-ingredientsUl.append(...listItem);
+const listItems = createListItem(ingredients);
+
+ingredientsUl.append(...listItems);
