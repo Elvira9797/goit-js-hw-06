@@ -5,11 +5,16 @@ validationInput.addEventListener("blur", onValidationInputBlur);
 function onValidationInputBlur(event) {
   const inputValidationEl = event.currentTarget;
 
-  if (inputValidationEl.value.length == inputValidationEl.dataset.length) {
-    inputValidationEl.classList.remove("invalid");
-    inputValidationEl.classList.add("valid");
+  if (
+    inputValidationEl.value.length === Number(inputValidationEl.dataset.length)
+  ) {
+    addOrRemoveClass("invalid", "valid");
   } else {
-    inputValidationEl.classList.remove("valid");
-    inputValidationEl.classList.add("invalid");
+    addOrRemoveClass("valid", "invalid");
   }
+}
+
+function addOrRemoveClass(a, b, inputValidationEl) {
+  validationInput.classList.remove(a);
+  validationInput.classList.add(b);
 }
